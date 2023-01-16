@@ -16,6 +16,16 @@ body:
           required: true
         - label: I have reproduced the defect using the latest version of the script
           required: true
+  - type: dropdown
+    attributes:
+      label: Script selection
+      description: Which script are you reporting a defect for?
+      options:
+        - clocktable
+        - photo-helper
+        - wsl2
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Describe the defect
