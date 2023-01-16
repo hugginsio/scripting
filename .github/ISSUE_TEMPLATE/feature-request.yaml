@@ -13,7 +13,7 @@ body:
   - type: dropdown
     attributes:
       label: Script selection
-      description: Which script are you reporting a defect for?
+      description: Which script are you requesting a feature for?
       options:
         - clocktable
         - photo-helper
