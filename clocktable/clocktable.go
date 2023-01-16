@@ -1,13 +1,15 @@
 package main
 
 import (
-  "bufio"
-  "fmt"
-  "log"
-  "os"
-  "path/filepath"
-  "regexp"
-  "strings"
+	"bufio"
+	"fmt"
+	"log"
+	"math"
+	"os"
+	"path/filepath"
+	"regexp"
+	"strconv"
+	"strings"
 )
 
 // clocktable
@@ -24,7 +26,7 @@ func main() {
 
   directory := arguments[0]
 
-  fmt.Printf("Scanning %v\n", directory)
+  fmt.Printf("\nScanning \"%v\"\n\n", directory)
   processDirectory(directory)
 }
 
@@ -77,9 +79,27 @@ func processDirectory(path string) {
         for task, logbook := range clockMap {
           if len(logbook) > 0 {
             fmt.Println(task)
-            // TODO: parse logbook
-            fmt.Println(logbook)
-            fmt.Println()
+            var hours float64
+            var minutes float64
+            for _, log := range logbook {
+              splitLog := strings.Split(log, ":")
+              if splitHours, err := strconv.ParseFloat(splitLog[0], 64); err == nil {
+                hours += splitHours
+              }
+
+              if splitMinutes, err := strconv.ParseFloat(splitLog[1], 64); err == nil {
+                minutes += splitMinutes
+              }
+            }
+
+            // process minutes
+            if minutes > 59 {
+              hoursInMinutes := math.Floor(minutes / 60)
+              minutes -= hoursInMinutes * 60
+              hours += hoursInMinutes
+            }
+
+            fmt.Printf("%v hr, %v min\n\n", hours, minutes)
           }
         }
       }
