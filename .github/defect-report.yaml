@@ -1,0 +1,40 @@
+name: Defect report
+description: File a defect/issue
+title: ""
+labels: [defect]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a defect.
+  - type: checkboxes
+    attributes:
+      label: Documentation & version attestation
+      description: Make sure you checked all of the below before submitting an issue
+      options:
+        - label: I have read the accompanying documentation, if it exists
+          required: true
+        - label: I have reproduced the defect using the latest version of the script
+          required: true
+  - type: textarea
+    attributes:
+      label: Describe the defect
+      description: A clear and concise description of what the defect is.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Steps to reproduce the defective behavior.
+      placeholder: |
+        1.
+        2. 
+        3.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: A concise description of what you expected to happen.
+    validations:
+      required: true
