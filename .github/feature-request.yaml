@@ -1,0 +1,24 @@
+name: Feature request
+description: Request a new feature
+title: ""
+labels: [enhancement]
+body:
+  - type: checkboxes
+    attributes:
+      label: Did you check the documentation
+      description: Make sure you read the documentation before submitting a feature request
+      options:
+        - label: I have read all the accompanying documentation, if it exists
+          required: true
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: Describe the feature you are requesting
+      description: A clear and concise description of what you want to happen.
+  - type: textarea
+    validations:
+      required: false
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about the feature request here.
