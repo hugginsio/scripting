@@ -1,6 +1,6 @@
 name: Defect report
 description: File a defect/issue
-title: ""
+title: "defect: "
 labels: [defect]
 body:
   - type: markdown
